@@ -1,14 +1,49 @@
+{% block content %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Emial reset</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
 </head>
 <body>
-    <h3>this is index</h3>
+        <div class="row" style="height:100px;"></div>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-lg-4 col-md-4 col-sm-12">
+            {% if messages %}
+            <ul>
+                {% for message in messages %}
+                <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+            {{ form.non_field_errors }}
+<form action="signup" method="POST" >
+{% csrf_token %}    
+<div style="width:70%;margin: 12px;margin:  0 auto;">
+<input type="text" class="form-control" name="username" style="width:100%;margin:  12px auto;" placeholder="username">
+<p class="error">{{ form.username.errors }}</p>
+<input type="text" class="form-control" name="emial" style="width:100%;margin: 12px auto ;" placeholder="email">
+<p class="error">{{ form.emial.errors }}</p>
+<input type="password" class="form-control" name="password1" style="width:100%;margin: 12px auto ;" placeholder="password">
+<p class="error">{{ form.password1.errors }}</p>
+<input type="password" class="form-control" name="password2" style="width:100%;margin: 12px auto ;" placeholder="password confirmation">
+<p class="error">{{ form.password2.errors }}</p>
+
+
+<button type="submit" class="btn btn-warning">Sign In</button>
+</div>
+</form>
+
+    </div>
+    <div class="col-4"></div>
+</div>
 </body>
 </html>
+{% endblock %}
