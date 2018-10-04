@@ -7,17 +7,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-    
+
+       
+   {% load static %}   
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Emial reset</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <script src="main.js"></script>
 </head>
 <body>
-        <div class="row" style="height:100px;"></div>
+        <div class="pos-f-t">
+                <div class="collapse" id="navbarToggleExternalContent">
+                  <div class="bg-dark p-4">
+                    <h5 class="text-white h4">Collapsed content</h5>
+                    <span class="text-muted">Toggleable via the navbar brand.</span>
+                  </div>
+                </div>
+                <nav class="navbar navbar-dark bg-dark">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                </nav>
+              </div>
+        <div class="row" style="height:60px;"></div>
 <div class="row">
     <div class="col-4"></div>
     <div class="col-lg-4 col-md-4 col-sm-12">
@@ -29,7 +46,7 @@
             </ul>
         {% endif %}
             {{ form.non_field_errors }}
-<form action="signup" method="POST" >
+<form action="signup" method="POST" class="bg-dark" >
 {% csrf_token %}    
 <div style="width:70%;margin: 12px;margin:  0 auto;">
 <input type="text" class="form-control" name="username" style="width:100%;margin:  12px auto;" placeholder="username">
@@ -50,5 +67,36 @@
     <div class="col-4"></div>
 </div>
 </body>
+<style>
+
+form{
+  background: red;
+  padding: 60px 0px 30px 0px;
+  border-radius: 12px;
+  animation: form 1s ease-in-out 1;
+  -webkit-box-shadow: 0px 1px 4px 2px rgba(0,0,0,0.16); 
+box-shadow: 0px 1px 4px 2px rgba(0,0,0,0.16);
+
+}
+@keyframes form{
+  0%{
+transform: translateY(17%);
+opacity: 0;
+  }
+  50%{
+transform: translateY(-3%);
+opacity: 1;
+  }
+ 100%{
+transform: translateY(0);
+  }
+
+}
+
+
+</style>
+
+
+
 {% endblock %}
 </html>
