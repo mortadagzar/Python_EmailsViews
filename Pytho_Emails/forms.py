@@ -4,11 +4,6 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import UserCreationForm
 
 
-
-
-
-
-
 class myUserForm(forms.Form):
     username = forms.CharField(label='Enter Username', min_length=4, max_length=150)
     email = forms.EmailField(label='Enter email')
